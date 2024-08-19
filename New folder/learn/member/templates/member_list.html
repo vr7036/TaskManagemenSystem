@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Member List</title>
+    </head>
+    <body>
+        <h1>
+            Member List
+        </h1>
+        <table border="1">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>DOB</th>
+            </thead>
+            <tbody>
+                <tr>
+                {% for member in members %}
+                <td>
+                    member.name
+                </td>
+                    {{member.name}}
+                <td>
+                    {{member.email}}
+                </td>
+                <td>
+                    {{member.Date_of_birth}}
+                </td>
+                {% endfor %}
+            </tr>
+                </tbody>
+                </tbody>
+            </tbody>
+        </table>
+    </body>
+</html>

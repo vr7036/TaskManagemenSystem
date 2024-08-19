@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Create Task</title>
+</head>
+<body>
+    <h1>Create Task</h1>
+    <form method="POST" action="{% url 'task_create' %}">
+        {% csrf_token %}
+        <label for="title">Title:
+        </label>
+        <input type="text" id="title" name="title" required><br>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea><br>
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select><br>
+        <label for="priority">Priority</label>
+        <select name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br>
+        <label for="due_date">Due Date</label>
+        <input type="date" id="due_date" name="due_date" required><br>
+        <label for="category_id">Category:</label>
+        <select name="category_id" id="category_id">
+            {% for category in categories %}
+            <option value="{{ category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+
+</html>
